@@ -33,18 +33,18 @@ BSPHeader = namedtuple('BSPHeader',
     ("version,"
     "entities_ofs,  entities_size,"
     "planes_ofs,    planes_size,"
-    "miptex_ofs,    miptex_size,"
     "verts_ofs,     verts_size,"
     "visilist_ofs,  visilist_size,"
     "nodes_ofs,     nodes_size,"
     "texinfo_ofs,   texinfo_size,"
+    "miptex_ofs,    miptex_size,"
     "faces_ofs,     faces_size,"
     "lightmaps_ofs, lightmaps_size,"
-    "clipnodes_ofs, clipnodes_size,"
     "leaves_ofs,    leaves_size,"
     "lface_ofs,     lface_size,"
     "edges_ofs,     edges_size,"
     "ledges_ofs,    ledges_size,"
+    "clipnodes_ofs, clipnodes_size,"
     "models_ofs,    models_size")
     )
 fmt_BSPHeader = '<31I'
