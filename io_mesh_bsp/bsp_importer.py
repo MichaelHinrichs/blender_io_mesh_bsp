@@ -49,16 +49,19 @@ BSPHeader = namedtuple('BSPHeader',
     )
 fmt_BSPHeader = '<31I'
 
-BSPModel = namedtuple('BSPModel',
-    ("bbox_min_x,  bbox_min_y,  bbox_min_z,"
-    "bbox_max_x,   bbox_max_y,  bbox_max_z,"
-    "origin_x,     origin_y,    origin_z,"
-    "node_id0, node_id1, node_id2, node_id3,"
-    "numleafs,"
-    "face_id,"
-    "face_num")
+BSPMipTex = namedtuple('BSPMipTex', 'name, width, height, ofs1, ofs2, ofs4, ofs8')
+fmt_BSPMipTex = '<16s6I'
+
+BSPVertex = namedtuple('BSPVertex', 'x, y, z')
+fmt_BSPVertex = '<fff'
+
+BSPTexInfo = namedtuple('BSPTexInfo',
+    ("s_x,  s_y,    s_z,    s_dist,"
+    "t_x,   t_y,    t_z,    t_dist,"
+    "texture_id,"
+    "animated")
     )
-fmt_BSPModel = '<9f7I'
+fmt_BSPTexInfo = '<8f2I'
 
 BSPFace = namedtuple('BSPFace',
     ("plane_id,"
@@ -74,23 +77,20 @@ BSPFace = namedtuple('BSPFace',
 fmt_BSPFace = '<HHiHHBBBBi'
 fmt_BSP2Face = '<IIiIIBBBBi'
 
-BSPVertex = namedtuple('BSPVertex', 'x, y, z')
-fmt_BSPVertex = '<fff'
-
 BSPEdge = namedtuple('BSPEdge', 'vertex0, vertex1')
 fmt_BSPEdge = '<HH'
 fmt_BSP2Edge = '<II'
 
-BSPTexInfo = namedtuple('BSPTexInfo',
-    ("s_x,  s_y,    s_z,    s_dist,"
-    "t_x,   t_y,    t_z,    t_dist,"
-    "texture_id,"
-    "animated")
+BSPModel = namedtuple('BSPModel',
+    ("bbox_min_x,  bbox_min_y,  bbox_min_z,"
+    "bbox_max_x,   bbox_max_y,  bbox_max_z,"
+    "origin_x,     origin_y,    origin_z,"
+    "node_id0, node_id1, node_id2, node_id3,"
+    "numleafs,"
+    "face_id,"
+    "face_num")
     )
-fmt_BSPTexInfo = '<8f2I'
-
-BSPMipTex = namedtuple('BSPMipTex', 'name, width, height, ofs1, ofs2, ofs4, ofs8')
-fmt_BSPMipTex = '<16s6I'
+fmt_BSPModel = '<9f7I'
 
 # surfaces with these textures will be ignored
 ignored_texnames = (
